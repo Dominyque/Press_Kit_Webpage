@@ -1,0 +1,536 @@
+ <!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+@property --image-height {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 50vh;
+}
+
+@property --half-black {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgba(25%, 25%, 25%, 50%);
+}
+
+@property --half-white {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgba(75%, 75%, 75%, 50%);
+}
+
+/*
+____ 3D HTML ____
+*/
+html {
+  height: 100%;
+  overflow: hidden;
+  /*
+  overflow-y: scroll;
+  */
+  background-image:
+    linear-gradient(to right, rgba(0%, 0%, 0%, 80%) 0%, var(--half-black) 20%, var(--half-black) 80%, rgba(0%, 0%, 0%, 80%) 100%),
+    url(Decomposed_monad_as_alchemical_lab.png),
+    url(parchment-paper-cropped-scaled.jpg);
+}
+
+* {padding: 0; margin: 0;}
+
+body {
+  /*
+  opacity: 0.5;
+  background-color: white;
+  background-image: url(goemetric monad glif.webp);
+  background-position: top left;
+  background-repeat: repeat;
+  */
+  text-align:center;
+  color:white;
+  font-family: Lucida Console;
+  -webkit-text-stroke-width: 0.06em;
+  -webkit-text-stroke-color: var(--half-black);
+  /*text-shadow: 1px 1px var(--half-black), -1px 1px var(--half-black), 1px -1px var(--half-black), -1px -1px var(--half-black);*/
+  font-size: 1.2em;
+  line-height: 0.9em;
+  /*
+  ____ 3D HTML ____
+  */
+  height: 100vh;
+  width: 100vw;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body > * {
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  /*
+  ____ 3D HTML ____
+  */
+  transform-style: preserve-3d;
+}
+
+h1 {
+  /*font-size: 330%;*/
+  margin: 1%;
+  font-size: 11vw;
+  color: black;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--half-white);
+  text-shadow: 0 0 10px white;
+}
+
+h2 {
+  margin: 3%;
+  font-size: 1.6em;
+  text-shadow: 0 5px 10px var(--half-black), 0 -5px 10px var(--half-white);
+}
+
+ruby { font-size: 2em; }
+
+footer {vertical-align: bottom;}
+
+header {
+  background-image: linear-gradient(to bottom, white 50vh, rgba(0%, 0%, 0%, 0%) 100%);
+  margin: 1%;
+  padding-top: 30vh;
+  /*
+  ____ 3D HTML ____
+  */
+  transform: translateZ(0.1px) scale(1.1);
+}
+
+.head {
+  background-repeat: repeat;
+  background-position: top;
+  height: 20vh;
+  margin: -1%;
+  padding-top: 0;
+  padding-bottom: 22vh;
+}
+
+.charhead {
+  display: block;
+  background-image: url('Log01.webp');
+  background-size: contain;
+  background-size: clamp(10vw, 80%, 50vw) contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin: 10%;
+  padding: 5%;
+  margin-top: -35vh;
+  margin-bottom: 30vh;
+  /*
+  ____ 3D HTML ____
+  */
+  margin-top: -60vh;
+  margin-bottom: 70vh;
+  transform: translateZ(-2.5px) scale(3.5);
+}
+
+
+.charhead * {margin: 0;}
+.charhead p {
+  background-image:
+    linear-gradient(to right, rgba(0%, 0%, 0%, 0%) 5%,
+    var(--half-black) 20%,
+    var(--half-black) 80%,
+    rgba(0%, 0%, 0%, 0%) 95%);
+  text-shadow: 0 0 5px black;
+}
+
+.dropdown-content {
+  text-align:justify;
+  text-align-last:center;
+  display: none;
+}
+
+.show {display: block;}
+
+.bunch-text {
+  display: inline-block;
+  padding: 15vw;
+  padding-top: 0;
+  padding-bottom: 5vh;
+  color: black;
+  line-height: 1.1em;
+}
+.bunch-text p {margin-bottom: 0.3em;}
+.bunch-text p::before {content: ''; padding-left: 2.5em;}
+
+.contact_link {
+  display: inline-block;
+  width: 8vw;
+  height: 8vw;
+  margin-top: 3vh;
+  margin-bottom: 25vh;
+  padding: 3vw;
+}
+
+#d img{
+  border: 0;
+  margin: 1%;
+  max-width: 20wv;
+  max-height: 20vh;
+}
+
+#screenshot-carucell div {
+  margin: 0;
+  padding: 0;
+  height: var(--image-height);
+  display: inline-block;
+  overflow: hidden;
+}
+#screenshot-carucell div img { height: var(--image-height); }
+
+.full-scr-container {
+  display: none;
+  position: sticky;
+  top: 0; right: 0; left: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  overflow: auto;
+  background-color: var(--half-black);
+}
+.full-scr-container img{
+  max-height: 95vh;
+  max-width: 95vw;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 2.5vh 2.5vw;
+  background-color: black;
+  border-style: solid;
+  border-width: 2.5vh 2.5vw;
+  border-color: var(--half-black);
+}
+.dropdown-content .full-screenable-img{
+  max-height: 50vh;
+  max-width: 50vw;
+  border: black solid 10px;
+}
+</style>
+
+</head>
+
+<!--<body onload="startTime()">-->
+<body>
+
+<header>
+<img class="head" src="Artichoke log01.webp">
+</header>
+<div class="charhead">
+<!--
+<div>
+  <img style="height:100%;" src="Log01.webp">
+-->
+  <h1 style="line-height: 7.3vw;">CHARLATMAN<br>GYROLLER</h1>
+  <p style="display: inline;">is<br>a</p>
+  <p style="text-align:justify; text-align-last:center;">
+  collectathon physics based casual platformer for mobile.
+  Unlike other phone games Charlatman Gyroller primeraly uses the phone's gyroscope sensor, instead of touch interface, to roll a sphere around 3D environments, collect points to progress.</p>
+</div>
+
+<div>
+  <h2 onclick="clickedBool('a')">Trailer Clip <ruby><rt id="a" class="dropdown-content show">⮋</rt><rt id="a" class="dropdown-content">⮉</rt></ruby></h2>
+  <div id="a" class="dropdown-content">
+    <div class="bunch-text">
+      <iframe style="height: clamp(80vh, 95vh, 95vh); width: clamp(30vw, 50vw, 95vw);" src="https://www.youtube.com/embed/ELlUnylqLT8" title="EnterCharlatman01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!--
+      <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      <iframe width="100vw" height="100vh" src="https://www.youtube.com/watch?v=cyKQp29233I"></iframe>
+      <video scr="EnterCharlatman02.mp4" style="height: 100vh;" width="1080" height="1920" controls>
+        <source scr="EnterCharlatman02.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+      -->
+      <div onclick="clickedBool('a')" id="a" class="dropdown-content">⮉</div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Game Alpha</h2>
+  <p style="margin-top: -1em;"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.Artishock.CharlatmanGyroller&pcampaignid=web_share" rel="noreferrer noopener">
+    <img style="height: 8vh;" src="Log01.webp">
+    <img style="height: 8vh;" src="1664285914google-play-logo-png.png">
+  </a></p>
+</div>
+
+<div>
+  <h2 onclick="clickedBool('b')">Video Introduction <ruby><rt id="b" class="dropdown-content show">⮋</rt><rt id="b" class="dropdown-content">⮉</rt></ruby></h2>
+  <div id="b" class="dropdown-content">
+    <div class="bunch-text">
+      <iframe style="height: clamp(40vh, 90vh, 95vh); width: clamp(80vw, 95vw, 95vw);" src="https://www.youtube.com/embed/cyKQp29233I" title="【Unity】Made a 3D Rollaball Colectathon【Android】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div onclick="clickedBool('b')" id="b" class="dropdown-content">⮉</div>
+    </div>
+  </div>
+</div>
+
+<div style="
+  margin: 15vw;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  height: var(--image-height);
+  display: block;
+  overflow-x: hidden;
+  overflow-y: clip;">
+  <div id="screenshot-carucell">
+    <div><img class="full-screenable-img" src="G04.jpg"></div>
+    <div><img class="full-screenable-img" src="G05.jpg"></div>
+    <div><img class="full-screenable-img" src="Jump.jpg"></div>
+    <div><img class="full-screenable-img" src="New Level - Copy.jpg"></div>
+    <div><img class="full-screenable-img" src="ph1.jpg"></div>
+    <div><img class="full-screenable-img" src="Spyral.jpg"></div>
+    <div><img class="full-screenable-img" src="Track Scene.jpg"></div>
+    <div><img class="full-screenable-img" src="Wave.jpg"></div>
+    <div><img class="full-screenable-img" src="Arc.jpg"></div>
+  </div>
+</div>
+
+<div class="full-scr-container"><img id="full-scr-img"></div>
+
+<div>
+  <h2 onclick="clickedBool('c')">Project Description <ruby><rt id="c" class="dropdown-content show">⮋</rt><rt id="c" class="dropdown-content">⮉</rt></ruby></h2>
+  <div id="c" class="dropdown-content"
+    style="
+      background-image: url('end title.webp');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+  ">
+    <div class="bunch-text"
+      style="
+        background-image:
+          radial-gradient(
+            closest-side at 50% 50%,
+            rgba(100%, 100%, 100%, 20%) 5%,
+            rgba(100%, 100%, 100%, 60%) 15%,
+            rgba(100%, 100%, 100%, 20%) 70%,
+            rgba(100%, 100%, 100%, 2%) 100%
+          );
+        background-position: 50% 50%;
+        background-size: contain;
+    ">
+      <p>Charlatman Gyroller is a collectathon physics based casual platformer for mobile.</p>
+      <!--
+      <!img style="max-height: 50vh; max-width: 50vw; float: left;background-clip: content-box; margin: -10vh; padding-left: 25vw;" src="end title.webp">
+      -->
+      <p>Mobile is a platform whose full range of tools are often overlooked, but when implemented can bring astonishing results as an example Niantic Inc’s “Ingress”, which was a basis for world encapsulating phenomena - “Pokemon Go”. In my case the gyroscope as input for 3d movement solves the lack of feedback regular touch screen interfaces provide,  when compared to buttons, as constant movement of the wrist emphasizes the holding of your phone, action on its own decreasing and emphasizing the distance between the player and game – that is the essence of an art medium. The core game itself a casual collectathon – rolling a ball in a track finding and taking mcGuffins until finish is reached where your points are calculated and by watching an ad the next level is opened. Because the game is physics based and the mechanics of tilting the phone are new to the player the terrain itself acts like challenge the difficulty can be measured in ruggedness and angles, future development may include wind resistance, water and buoyancy, gravity flip and bounciness added.</p>
+      <p>Whilst casually progressing through the game I expect the player wanting to tweak the controls or camera, here I bring my design twist and, what I intend to be, the hook of the game. The “Charlatmanual” is a mechanic presented as a book whose pages are interactive but not intuitive menus in order to alter the camera, pellet’s physical properties and other game features, you exchange collected points to material properties in the book that change the material properties of the pellet, some pages are locked depending on game progression.</p>
+      <p>The story is similarly not announced overtly but is found in the menu. As some people just never bother to read stories, and others read any bits designers throw at them, here I decided to candidly explain the background lore. I want to create a dialogue like prose in order to make what is essentially a lore dump more lively. So a charlatman is s class similar to an alchemist combined with a musketeer that long ago killed all the dragons, the player is a charlatman and the game is representation of progression in charlatman craft and the last recollections of the dragons.</p>
+      <div onclick="clickedBool('c')" id="c" class="dropdown-content">⮉</div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2 onclick="clickedBool('d')">a Fiscal Paradox <ruby><rt id="d" class="dropdown-content show">⮋</rt><rt id="d" class="dropdown-content">⮉</rt></ruby></h2>
+  <div id="d" class="dropdown-content">
+    <div class="bunch-text">
+      <p>
+        The mobile game market remains as the most profitable entertainment venture in the market. While the gacha and other pseudo gambling style games are the most profitable at the moment, breaking into a saturated market would require an expansive development team and vast knowledge in order to be competitive with established titles and players, so for my lack of experience – my break through example is an older type of game and monetization model of a free to play ad-locked game.
+      </p>
+      <p>
+        I completed a working demo sized game portion and released it to the wind of google play.
+        <img class="full-screenable-img" src="GoogleAd.jpg" style="float: right; margin-right: 0;">
+         Then I invested some over 100$ to ads and waited for results to get a better understanding about the monetization model. Results were underwhelming and I still cant find a suitable explanation for the following problem.
+      </p>
+      <p>
+        <img class="full-screenable-img" src="PlayStore.jpg" style="float: left; margin-left: 0;">
+        Over 1000 people have downloaded the game and presumably played it,
+        <br>
+        the first level is an introduction to the physical mechanics and is not a challenge, after which an ad is requested from the ads provider via an API call,
+        <br>
+        the requests for ads numbered in the 10’s to the contrast of 1000 players.
+        <br>
+        <img class="full-screenable-img" src="AdMob.jpg" style="float: right; margin-right: 0;">
+        <img class="full-screenable-img" src="LevelPlay.jpg" style="float: left; margin-left: 0;">
+        <img class="full-screenable-img" src="Meta.jpg" style="float: right; margin-right: 0;">
+        <img class="full-screenable-img" src="UnityAds.jpg" style="float: left; margin-left: 0;">
+        Possible explanations: (a) no ads are available to the regions of my ad campaign targeted player base; (b) everyone is using ad blockers of VPN’s that interfere with the API calls; (c) the low budget targeting results in an acquisition of fictitious users (mobile bot farms). I have rejected the following explanations: first level being too difficult/unfinishable for most players or them getting boded/dropping the game – it takes too fast of a time to complete the level to even make an assessment; people just don’t want to see ads and quit after seeing one – I have counted the ad requests, not clickes.
+      </p>
+      <p>
+        Hopefully your company can provide me with further knowledge to successfully draw players in – I don’t know which necessary part of video game development/marketing I lack the most.
+        <br>
+        Releasing a console version (nintendo switcch and playstation 5 have gyroscopes, to my knowledge).
+        <br>
+        I am open to your input, actually, I am hungry for it.
+      </p>
+      <p>
+        My current expectation is to get financial provisions for a year of development and to spend double of that amount for marketing.
+        <br>
+        30k(sudgested investment fund) - 10k(living expense for a year) = 20k(marketing budget)
+      </p>
+      <div onclick="clickedBool('d')" id="d" class="dropdown-content">⮉</div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2 onclick="clickedBool('e')">About Me <ruby><rt id="e" class="dropdown-content show">⮋</rt><rt id="e" class="dropdown-content">⮉</rt></ruby></h2>
+  <div id="e" class="dropdown-content">
+    <div class="bunch-text">
+      <img class="full-screenable-img" style="float:right; margin-left: 1vw;" src="2022-04-24_13-21-33Chnged.webp">
+      <p>
+        My name is Dominic I have an artistic calling in life. Painting is my most refined art form and I have a degree in it, but I have always been fascinated in music and movies. I grew up experiencing the metamorphic growth of video game technology and am currently seeing the maturing of its substance, to which I wish to have a hand in. For the last couple of years I have been growing my technical understanding of video games, their mechanics, programming and aesthetics, in which I had great success in. However my least developed aspect of game production is marketing. I recognize that we live in a golden age of marketing with social media campaigns dominating over traditional marketing strategies, but my aversion to consumerist temperament and an introverted personality might make my attempts at marketing myself and my projects less committed then ideal.
+      </p>
+      <p style="text-align:right;">
+        This unrelenting artist is eager to hearing from you. Note some of my works...
+      </p>
+      <img class="full-screenable-img" style="float:left;" src="Midnights knees01.webp">
+      <img class="full-screenable-img" style="float:right;" src="2022-04-30_17-46-50.jpg">
+      <img class="full-screenable-img" style="float:left;" src="2022-04-30_16-59-23Try.webp">
+      <img class="full-screenable-img" style="float:right;" src="IMG_0715.webp">
+      <img class="full-screenable-img" style="float:left;" src="IMG_0711.webp">
+      <img class="full-screenable-img" src="2022-04-30_17-57-46.webp">
+      <img class="full-screenable-img" src="2022-04-30_18-38-39.webp">
+      <div onclick="clickedBool('e')" id="e" class="dropdown-content">⮉</div>
+    </div>
+  </div>
+</div>
+
+<div id="ol"></div>
+
+<footer>
+  <div>I'm available on platforms:</div>
+  <div class="contact_link">
+    <a href="mailto:antihumanistas@gmail.com">
+      <!-- mail -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="52 42 88 66">
+        <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/>
+        <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/>
+        <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/>
+        <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/>
+        <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/>
+      </svg>
+    </a>
+  </div>
+  <div class="contact_link">
+    <a href="tg://t.me/DomasErrie">
+      <!-- Telegram -->
+      <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240 240"><defs><linearGradient id="linear-gradient" x1="120" y1="240" x2="120" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1d93d2"/><stop offset="1" stop-color="#38b0e3"/></linearGradient></defs><title>Telegram_logo</title><circle cx="120" cy="120" r="120" fill="url(#linear-gradient)"/><path d="M81.229,128.772l14.237,39.406s1.78,3.687,3.686,3.687,30.255-29.492,30.255-29.492l31.525-60.89L81.737,118.6Z" fill="#c8daea"/><path d="M100.106,138.878l-2.733,29.046s-1.144,8.9,7.754,0,17.415-15.763,17.415-15.763" fill="#a9c6d8"/><path d="M81.486,130.178,52.2,120.636s-3.5-1.42-2.373-4.64c.232-.664.7-1.229,2.1-2.2,6.489-4.523,120.106-45.36,120.106-45.36s3.208-1.081,5.1-.362a2.766,2.766,0,0,1,1.885,2.055,9.357,9.357,0,0,1,.254,2.585c-.009.752-.1,1.449-.169,2.542-.692,11.165-21.4,94.493-21.4,94.493s-1.239,4.876-5.678,5.043A8.13,8.13,0,0,1,146.1,172.5c-8.711-7.493-38.819-27.727-45.472-32.177a1.27,1.27,0,0,1-.546-.9c-.093-.469.417-1.05.417-1.05s52.426-46.6,53.821-51.492c.108-.379-.3-.566-.848-.4-3.482,1.281-63.844,39.4-70.506,43.607A3.21,3.21,0,0,1,81.486,130.178Z" fill="#fff"/></svg>
+    </a>
+  </div>
+  <div class="contact_link">
+    <a href="https://signal.me/#p/+37061889299">
+      <!-- Signal -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <path fill="#3a76f0" d="M0,0v1024h1024V0H0z"/>
+        <path fill="#ffffff" d="M427.5,170.3l7.9,32A319.6,319.6,0,0,0,347,238.9l-16.9-28.3A347.6,347.6,0,0,1,427.5,170.3Zm169,0-7.9,32A319.6,319.6,0,0,1,677,238.9l17.1-28.3A350.1,350.1,0,0,0,596.5,170.3ZM210.6,330a349.5,349.5,0,0,0-40.3,97.5l32,7.9A319.6,319.6,0,0,1,238.9,347ZM193,512a318.5,318.5,0,0,1,3.6-47.8l-32.6-5a352,352,0,0,0,0,105.5l32.6-4.9A319.5,319.5,0,0,1,193,512ZM693.9,813.3,677,785.1a317.8,317.8,0,0,1-88.3,36.6l7.9,32A350.3,350.3,0,0,0,693.9,813.3ZM831,512a319.5,319.5,0,0,1-3.6,47.8l32.6,4.9a352,352,0,0,0,0-105.5l-32.6,5A318.5,318.5,0,0,1,831,512Zm22.7,84.4-32-7.9A319,319,0,0,1,785.1,677l28.3,17A348.9,348.9,0,0,0,853.7,596.4Zm-293.9,231a319.1,319.1,0,0,1-95.6,0L459.3,860a351.3,351.3,0,0,0,105.4,0Zm209-126.2a318.1,318.1,0,0,1-67.6,67.5l19.6,26.6A355.1,355.1,0,0,0,795.4,721Zm-67.6-446a318.6,318.6,0,0,1,67.6,67.6L795.4,303A354.6,354.6,0,0,0,721,228.6Zm-446,67.6a318.6,318.6,0,0,1,67.6-67.6L303,228.6A354.6,354.6,0,0,0,228.6,303ZM813.4,330l-28.3,17a317.8,317.8,0,0,1,36.6,88.3l32-7.9A348.9,348.9,0,0,0,813.4,330ZM464.2,196.6a319.1,319.1,0,0,1,95.6,0l4.9-32.6a351.3,351.3,0,0,0-105.4,0ZM272.1,804.1,204,819.9l15.9-68.1-32.1-7.5-15.9,68.1a33,33,0,0,0,24.6,39.7,34.5,34.5,0,0,0,15,0l68.1-15.7Zm-77.5-89.2,32.2,7.4,11-47.2a316.2,316.2,0,0,1-35.5-86.6l-32,7.9a353.3,353.3,0,0,0,32.4,83.7Zm154,71.4-47.2,11,7.5,32.2,34.7-8.1a349,349,0,0,0,83.7,32.4l7.9-32a316.7,316.7,0,0,1-86.3-35.7ZM512,226c-158,.1-285.9,128.2-285.9,286.1a286.7,286.7,0,0,0,43.9,152L242.5,781.5,359.8,754c133.7,84.1,310.3,44,394.4-89.6S798.3,354.2,664.7,270A286.7,286.7,0,0,0,512,226s"/>
+      </svg>
+    </a>
+  </div>
+  <div class="contact_link">
+    <a href="viber://chat?number=+37061889299">
+      <!-- Viber -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><clipPath><path d="m-24 13c0 1.105-.672 2-1.5 2-.828 0-1.5-.895-1.5-2 0-1.105.672-2 1.5-2 .828 0 1.5.895 1.5 2" transform="matrix(15.33333 0 0 11.5 415-125.5)" fill="#1890d0"/></clipPath><clipPath><path transform="matrix(15.33333 0 0 11.5 415-125.5)" d="m-24 13c0 1.105-.672 2-1.5 2-.828 0-1.5-.895-1.5-2 0-1.105.672-2 1.5-2 .828 0 1.5.895 1.5 2" fill="#1890d0"/></clipPath><clipPath><path d="m-24 13c0 1.105-.672 2-1.5 2-.828 0-1.5-.895-1.5-2 0-1.105.672-2 1.5-2 .828 0 1.5.895 1.5 2" transform="matrix(15.33333 0 0 11.5 415-125.5)" fill="#1890d0"/></clipPath><clipPath><path d="m-24 13c0 1.105-.672 2-1.5 2-.828 0-1.5-.895-1.5-2 0-1.105.672-2 1.5-2 .828 0 1.5.895 1.5 2" transform="matrix(15.33333 0 0 11.5 415-125.5)" fill="#1890d0"/></clipPath><linearGradient gradientTransform="matrix(1.4 0 0 1.39991 109.94 1027.47)" gradientUnits="userSpaceOnUse" y2="4.445" x2="0" y1="35.14" id="0"><stop stop-color="#974eb7"/><stop offset="1" stop-color="#d164ff"/></linearGradient></defs><path d="m65.69 1034.21c-11.609 0-21 9.393-21 21 0 11.608 9.391 20.999 21 20.999 11.609 0 21-9.39 21-20.999 0-11.608-9.391-21-21-21" fill="url(#0)" transform="matrix(1.14286 0 0 1.14286-51.08-1181.95)"/><g transform="matrix(-1.04347 0 0 1.04347 134.25 13.14)" enable-background="new" fill="#f3e4fa"><path d="m96.42 19.336l3.261-3.901c.65-.774 1.833-.858 2.637-.186l1.965 1.643c.108-.073.22-.149.338-.23 1.083-.733 2.565-1.738 4.059-3.526 1.499-1.793 2.225-3.432 2.757-4.628.056-.127.11-.249.163-.365l-1.319-1.101-.649-.543c-.805-.673-.931-1.852-.283-2.629l3.261-3.902c.648-.775 1.832-.859 2.637-.186l1.1.925-.025.03c.377.402.704.874.963 1.393.24.494.404.971.503 1.455.823 3.878-.648 7.621-5.075 12.917-6.12 7.32-11.581 7.296-11.817 7.292-.514-.015-1.013-.093-1.526-.242-.551-.16-1.074-.398-1.536-.697l-.02.022-1.112-.91c-.804-.673-.931-1.853-.283-2.63"/><g transform="matrix(-.92216.93748.93748.92216 107.57-38.975)"><path d="m22.466 19.09l1.167 1.167c1.178-1.178 2.745-1.828 4.412-1.828 1.667 0 3.233.649 4.412 1.828l1.167-1.167c-1.49-1.49-3.471-2.311-5.579-2.311-2.108 0-4.089.821-5.579 2.311"/><g><path d="m24.541 21.17l1.167 1.167c.624-.624 1.454-.968 2.337-.968.883 0 1.712.344 2.337.968l1.167-1.167c-.936-.936-2.18-1.451-3.504-1.451-1.324 0-2.568.515-3.504 1.451"/><path d="m28.04 22.994c-.429 0-.858.164-1.185.491-.011.011-.022.023-.033.035l1.218 1.222 1.221-1.218c-.012-.013-.024-.026-.036-.038-.327-.327-.756-.491-1.185-.491"/></g></g></g></svg>
+    </a>
+  </div>
+  <div class="contact_link">
+    <a href="https://bsky.app/profile/artichok.bsky.social">
+      <!-- Bluesky -->
+      <?xml version="1.0" encoding="UTF-8"?>
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530">
+        <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="#1185fe"/>
+      </svg>
+    </a>
+  </div>
+  <!--
+  <button onclick="document.location='tg://t.me/DomasErrie'" class="contact_link">Telegram
+  -->
+  <!--
+  <button onclick="document.location='https://bsky.app/profile/artichok.bsky.social'" class="contact_link">Bluesky
+  -->
+</footer>
+
+<script>
+
+const dropdowns = document.getElementsByClassName("dropdown-content");
+
+const img = document.getElementsByClassName("full-screenable-img");
+const fSI = document.getElementById("full-scr-img");
+const fSIContainer = document.getElementsByClassName("full-scr-container")[0];
+
+function clickedBool(st) {
+  for(i=0; i<dropdowns.length; i++){
+    if(dropdowns[i].id == st){
+      dropdowns[i].classList.toggle("show");
+    }
+  }
+}
+
+function carucelling(){
+  const iMil = 40;//interval miliseconds
+  const perC = 0.01;//part of image to move
+
+  const carucell = document.getElementById("screenshot-carucell");
+  let carucellImg = carucell.children;
+  const imageWidth = carucellImg[0].offsetWidth;
+
+  function rotateElements(){
+    let theImg = carucellImg[0];
+    theImg.style.removeProperty("margin-left");
+    theImg.style.removeProperty("translate");
+    carucell.appendChild(theImg);
+  }
+
+  function moveBackNForth(theImg, diff){
+    let intas = perC;
+    let ints2 = intas;
+    setInterval(function(){
+      theImg.children[0].style.translate = diff*-intas+"px";
+      if(intas>0 && intas<1) intas += ints2;
+      else if (intas >= 1 || intas <= 0) { intas -= ints2; ints2 = ints2 * -1; }
+    }, iMil);
+  }
+
+  for(i=0; i<carucellImg.length; i++){
+    rotateElements();
+    let diff = carucellImg[i].offsetWidth - imageWidth;
+    if(diff > 0){
+      carucellImg[i].style.width = imageWidth +"px";
+      moveBackNForth(carucellImg[i], diff);
+    }
+  }
+
+  function moveCarucell(){
+    let vizCnt = 0;
+    function getVizualCount(){ for(i=0; i<carucellImg.length; i++){ if(carucell.offsetWidth-(imageWidth * i) > imageWidth){ vizCnt = i+1; } } }
+    getVizualCount();
+    carucell.style.width = imageWidth * (vizCnt+1.1) + "px";
+
+    let marginL = 0
+    setInterval(function(){
+      if(marginL>-imageWidth){ marginL -= imageWidth * perC; }
+      else { marginL = 0; rotateElements(); }
+      carucell.style.translate = marginL+"px";
+    }, iMil)
+  }
+  moveCarucell();
+}
+console.log("1");
+setTimeout(() => {console.log("2"); carucelling();}, 3000);
+
+
+for(i=0; i<img.length; i++){
+  let anImg = img[i];
+  anImg.onclick = function(){
+    fSIContainer.style.display = "block";
+    fSI.src = this.src;
+  }
+}
+fSIContainer.onclick = function() { fSIContainer.style.display = "none"; }
+
+</script>
+
+</body>
+</html>
